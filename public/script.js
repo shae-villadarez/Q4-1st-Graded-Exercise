@@ -1,17 +1,14 @@
 /*
  to respond to the submit button
 */
-function solve(){
-    // access the form defined in index and create a form data object using FormData()
-    const form = document.getElementById('input_form');
-    const formData = new FormData(form);
-     // get the name of the celebrant
-    console.log(formData.get("name"));
-    const name = formData.get('name');
-  
-    // get and checks the gender
-    console.log(formData.get('gender'));
-    let gender = formData.get('gender');
+document.getElementById("input_form").onsubmit = function() {
+  const formData = new FormData(this);
+  let output = "<h2>Output</h2>";
+  formData.forEach((value, key) => {
+    output += `<p>${key}: ${value}</p>`;
+  });
+  document.getElementById("output").innerHTML = output;
+};
 
   
     /* Use the songs below needed in this exercise:
